@@ -55,20 +55,6 @@
 - **Background Service Worker**: Handles caching and background tasks
 - **Popup Interface**: Main user interface for interaction
 
-### Files Structure
-
-```
-Sumlify/
-├── manifest.json          # Extension configuration
-├── popup.html            # Main popup interface
-├── popup.js              # Popup logic and API integration
-├── styles.css            # Modern CSS styling
-├── content.js            # Content extraction script
-├── background.js         # Background service worker
-├── icons/               # Extension icons
-├── README.md            # This file
-└── LICENSE              # Apache 2.0 License
-```
 
 ### API Integration
 
@@ -210,7 +196,7 @@ The extension stores:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/sumlify.git
+   git clone https://github.com/muhammetaliaydin/Sumlify.git
    cd sumlify
    ```
 
@@ -273,9 +259,9 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/sumlify/issues)
-- **Documentation**: [Wiki](https://github.com/yourusername/sumlify/wiki)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/sumlify/discussions)
+- **Issues**: [GitHub Issues](https://github.com/muhammetaliaydin/Sumlify/issues)
+- **Documentation**: [Wiki](https://github.com/muhammetaliaydin/Sumlify/wiki)
+- **Discussions**: [GitHub Discussions](https://github.com/muhammetaliaydin/Sumlify/discussions)
 
 ## 🔄 Version History
 
