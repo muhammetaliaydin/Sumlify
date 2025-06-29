@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumlify Cache Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .test-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .test-links a {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .test-links a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sumlify Cache Test Sayfası</h1>
+    
+    <div class="section">
+        <h2>Cache Test Talimatları</h2>
+        <ol>
+            <li>Sumlify extension'ını yükleyin</li>
+            <li>API key'inizi girin</li>
+            <li>Bu sayfada özetleme yapın</li>
+            <li>Aşağıdaki test linklerine tıklayın</li>
+            <li>Her sayfada farklı cache key'lerin oluşturulduğunu test edin</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Test Linkleri</h2>
+        <div class="test-links">
+            <a href="?page=1">Sayfa 1</a>
+            <a href="?page=2">Sayfa 2</a>
+            <a href="?page=3&section=a">Sayfa 3A</a>
+            <a href="?page=3&section=b">Sayfa 3B</a>
+            <a href="#section1">Ana Sayfa #1</a>
+            <a href="#section2">Ana Sayfa #2</a>
+            <a href="/page1.html">Sayfa 1 (Path)</a>
+            <a href="/page2.html">Sayfa 2 (Path)</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Sayfa İçeriği</h2>
+        <p>Bu test sayfası Sumlify extension'ının cache sistemi için tasarlanmıştır. 
+        Farklı URL parametreleri ve hash değerleri ile aynı domain içinde farklı cache 
+        key'lerinin oluşturulduğunu test edebilirsiniz.</p>
+        
+        <p>JavaScript ile URL parametrelerini kontrol ediyoruz:</p>
+        <div id="url-info" style="background: #f8f9fa; padding: 15px; border-radius: 5px;">
+            <strong>Mevcut URL Bilgileri:</strong><br>
+            <span id="current-url"></span><br>
+            <span id="current-params"></span><br>
+            <span id="current-hash"></span>
+        </div>
+    </div>
+
+    <div class="section" id="section1">
+        <h2>Bölüm 1</h2>
+        <p>Bu bölüm cache testleri için ana içeriktir. Sumlify bu metni özetlemelidir.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <div class="section" id="section2">
+        <h2>Bölüm 2</h2>
+        <p>Bu bölüm farklı hash değerleri için test içeriğidir.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+        in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <script>
+        // URL bilgilerini göster
+        function updateUrlInfo() {
+            const url = window.location.href;
+            const params = window.location.search;
+            const hash = window.location.hash;
+            
+            document.getElementById('current-url').textContent = `URL: ${url}`;
+            document.getElementById('current-params').textContent = `Parametreler: ${params || 'Yok'}`;
+            document.getElementById('current-hash').textContent = `Hash: ${hash || 'Yok'}`;
+        }
+        
+        // Sayfa yüklendiğinde ve URL değiştiğinde güncelle
+        updateUrlInfo();
+        window.addEventListener('hashchange', updateUrlInfo);
+        window.addEventListener('popstate', updateUrlInfo);
+    </script>
+</body>
+</html>

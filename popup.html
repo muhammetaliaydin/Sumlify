@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumlify</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">📝</span>
+                <h1>Sumlify</h1>
+            </div>
+            <p class="tagline">AI-powered web summarizer</p>
+        </div>
+
+        <!-- API Key Setup Screen -->
+        <div id="api-key-screen" class="screen">
+            <div class="welcome-section">
+                <h2>Welcome to Sumlify!</h2>
+                <p>To get started, please enter your Google Gemini API key.</p>
+            </div>
+            
+            <div class="api-key-form">
+                <label for="api-key-input">Gemini API Key</label>
+                <div class="input-group">
+                    <input type="password" id="api-key-input" placeholder="Enter your API key here..." />
+                    <button type="button" id="toggle-key-visibility" class="toggle-btn" title="Show/Hide API Key">
+                        👁️
+                    </button>
+                </div>
+                <button id="save-api-key" class="primary-btn">Save API Key</button>
+            </div>
+
+            <div class="help-section">
+                <p>Don't have an API key yet?</p>
+                <button id="get-api-key" class="secondary-btn">Get API Key from Google AI Studio</button>
+            </div>
+        </div>
+
+        <!-- Main Summarization Screen -->
+        <div id="main-screen" class="screen hidden">
+            <!-- Status Section -->
+            <div id="status-section" class="status-section">
+                <div class="status-indicator">
+                    <span id="status-icon" class="status-icon">✅</span>
+                    <span id="status-text" class="status-text">Ready to summarize</span>
+                </div>
+            </div>
+
+            <!-- Current Website Info -->
+            <div id="website-info" class="website-info">
+                <div class="website-header">
+                    <span class="website-icon">🌐</span>
+                    <div class="website-details">
+                        <h3 id="website-title">Loading...</h3>
+                        <p id="website-url">...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="summarize-btn" class="primary-btn">
+                    <span class="btn-icon">🚀</span>
+                    Summarize Page
+                </button>
+                <button id="refresh-summary-btn" class="secondary-btn hidden">
+                    <span class="btn-icon">🔄</span>
+                    New Summary
+                </button>
+            </div>
+
+            <!-- Summary Results -->
+            <div id="summary-section" class="summary-section hidden">
+                <div class="summary-header">
+                    <h3>📋 Summary</h3>
+                    <span id="summary-timestamp" class="timestamp"></span>
+                </div>
+                
+                <div id="summary-content" class="summary-content">
+                    <!-- Summary will be populated here -->
+                </div>
+                
+                <div class="summary-actions">
+                    <button id="copy-summary" class="action-btn" title="Copy to clipboard">
+                        📋 Copy
+                    </button>
+                    <button id="clear-cache" class="action-btn warning" title="Clear cached summary">
+                        🗑️ Clear Cache
+                    </button>
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="settings-section">
+                <button id="settings-btn" class="settings-btn" title="Settings">⚙️</button>
+            </div>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settings-screen" class="screen hidden">
+            <div class="settings-header">
+                <button id="back-to-main" class="back-btn">←</button>
+                <h2>Settings</h2>
+            </div>
+            
+            <div class="settings-content">
+                <div class="theme-toggle">
+                    <label for="theme-switch">
+                        🌙 Dark Mode
+                    </label>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="theme-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label>API Key</label>
+                    <div class="input-group">
+                        <input type="password" id="settings-api-key" readonly />
+                        <button id="edit-api-key" class="toggle-btn">✏️</button>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <label>Cache Management</label>
+                    <button id="clear-all-cache" class="warning-btn">Clear All Cached Summaries</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Processing...</p>
+        </div>
+
+        <!-- Error Messages -->
+        <div id="error-message" class="error-message hidden">
+            <span class="error-icon">⚠️</span>
+            <span id="error-text"></span>
+            <button id="dismiss-error" class="dismiss-btn">×</button>
+        </div>
+
+        <!-- Success Messages -->
+        <div id="success-message" class="success-message hidden">
+            <span class="success-icon">✅</span>
+            <span id="success-text"></span>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

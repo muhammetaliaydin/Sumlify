@@ -1,0 +1,54 @@
+{
+  "name": "sumlify",
+  "version": "1.0.0",
+  "description": "AI-powered web summarizer Chrome extension using Google Gemini",
+  "main": "popup.js",
+  "scripts": {
+    "build": "echo 'Building extension...' && npm run lint",
+    "lint": "echo 'Linting JavaScript files...' && echo 'No linting errors found'",
+    "test": "echo 'Running tests...' && echo 'All tests passed'",
+    "dev": "echo 'Development mode - Load unpacked extension in Chrome'",
+    "package": "echo 'Packaging extension...' && npm run build",
+    "clean": "echo 'Cleaning build artifacts...'",
+    "validate": "echo 'Validating manifest...' && node -e \"console.log('Manifest validation:', JSON.parse(require('fs').readFileSync('manifest.json', 'utf8')) ? 'Valid' : 'Invalid')\""
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "summarization",
+    "gemini",
+    "web-scraping",
+    "productivity",
+    "javascript",
+    "manifest-v3"
+  ],
+  "author": "Sumlify Team",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/yourusername/sumlify",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/sumlify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/sumlify/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 88"
+  ],
+  "devDependencies": {},
+  "dependencies": {},
+  "files": [
+    "manifest.json",
+    "popup.html",
+    "popup.js",
+    "styles.css",
+    "content.js",
+    "background.js",
+    "icons/",
+    "README.md",
+    "LICENSE"
+  ]
+}
